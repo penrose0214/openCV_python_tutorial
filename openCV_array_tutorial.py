@@ -16,3 +16,12 @@ array4 = np.array([[1, 2, 3, 4, 5],
 print(array4[1:3]) #numpy array -> *[start:end:step]
 
 
+#matrix class not recommended in numpy library
+#better use ndarray class
+
+#setting ROI
+array5 = np.zeros((1280, 1920, 3), np.uint8)
+x, y, w, h = 100, 100, 300, 300
+roi = array5[x:x+w, y:y+h]
+print(array5.shape) #몇by몇 행렬인지 print하기
+print(roi.shape) #몇by몇 행렬인지 print
