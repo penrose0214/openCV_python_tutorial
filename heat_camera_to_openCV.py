@@ -1,6 +1,6 @@
-import time
-import board
-import busio
+import time         #cant be changed(바꿀 필요 없음)
+import board        
+import busio        #library for raspberry-pi connection (literally meaning bus)
 import numpy as np
 import adafruit_mlx90640
 import matplotlib.pyplot as plt
@@ -24,9 +24,10 @@ while True:
     t1 = time.monotonic()
     try:
         mlx.getFrame(frame) # read MLX temperatures into frame var
-        data_array = (np.reshape(frame,mlx_shape)) # reshape to 24x32
+        data_array = (np.reshape(frame,mlx_shape)) # reshape to 24x32 --> can change the shape into any N X M matrix
         therm1.set_data(np.fliplr(data_array)) # flip left to right
         therm1.set_clim(vmin=np.min(data_array),vmax=np.max(data_array)) # set bounds
+        #src_HighTempObj(therm1)
         '''on_mappbale_changed -> update_normal'''
         cbar.update_normal(therm1) # update colorbar range
         plt.pause(0.001) # required
@@ -36,5 +37,10 @@ while True:
     except ValueError:
         continue # if error, just read again
     
+'''
+    src_red_pixel(therm1)
+    
+    
+    '''
     
     #드론말고 여러대의 라즈베리파이 
