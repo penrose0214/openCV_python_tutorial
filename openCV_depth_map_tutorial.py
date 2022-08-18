@@ -8,5 +8,5 @@ R_img = cv.imread("Right_image.png")
 stereo = cv.StereoBM_create(numDisparities = 16, blockSize = 15)
 disparity = stereo.compute(L_img, R_img)
 
-plt.imshow(disparity, 'gray')
+plt.imshow(disparity, cmap='gray') #cmap = 'gray' refers to gray-scale image
 plt.show()
