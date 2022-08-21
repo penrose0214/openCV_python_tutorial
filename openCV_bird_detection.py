@@ -10,7 +10,8 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 model = tf.saved_model.load("./ssd_mobilenet_v2_320x320_coco17_tpu-8/saved_model")
-capture = cv.VideoCapture("bird.mp4")
+capture = cv.VideoCapture("bird.MP4") #another test with MP4 file "Eng_GK_training.MP4", which contains multiple people
+# test result: able to detect multiplie people
 
 while True:
     ret, frame = capture.read()
