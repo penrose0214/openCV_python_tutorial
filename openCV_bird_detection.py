@@ -5,7 +5,6 @@ import tensorflow as tf
 2022-08-21 18:38:46.709593: I tensorflow/core/platform/cpu_feature_guard.cc:142] 
 This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following C_feature_guard.cc:142] 
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.'''
-
 import os 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -31,7 +30,7 @@ while True:
     
     height, width, _ = frame.shape
     
-    for idx, score in enumerate(scores):
+    for idx, score in enumerate(scores):   
         if score > 0.7:
             class_id = int(classes[idx])
             box = boxes[idx]
